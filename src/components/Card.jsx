@@ -1,4 +1,12 @@
-const Card = ({ icon, gridSize }) => {
+import { useState } from 'react'
+
+const Card = ({ 
+  icon, 
+  gridSize,
+  onClick
+}) => {
+  const [flipped, setFlipped] = useState(false)
+  
   let baseClass = gridSize === 4
     ? 'text-4xl sm:text-5xl'
     : gridSize === 6
@@ -13,9 +21,19 @@ const Card = ({ icon, gridSize }) => {
 
   return (
     <div
-      className='w-full h-full cursor-pointer select-none'
+      className='w-full h-full cursor-pointer select-none perspective'
+      onClick={() => {
+        setFlipped(!flipped)
+        onClick?.()
+      }}
     >
-      <div className='relative w-full h-full'>
+      <div 
+        className={`
+          relative w-full h-full 
+          transition-transform duration-500 transform-style preserve-3d
+          ${flipped ? 'rotate-y-180' : ''}
+        `}
+      >
         {/* Front */}
         <div
           className={`

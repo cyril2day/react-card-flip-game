@@ -19,6 +19,9 @@ const GameBoard = ({
           key={idx} 
           icon={icon} 
           gridSize={gridSize}
+          onClick={() => {
+            console.log('Card clicked', idx)
+          }}
         />       
       ))}
     </div>
