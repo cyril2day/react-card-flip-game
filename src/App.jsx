@@ -3,10 +3,10 @@ import Scoreboard from './components/Scoreboard'
 import ResetButton from './components/ResetButton'
 import GameBoard from './components/GameBoard'
 import Graffiti from './components/Graffiti'
+import TempComponent from './components/TempComponent'
 import { useState } from 'react'
 import generateIcons from './utils/generateIcons'
 import shuffleDeck from './utils/shuffleDeck'
-import TempComponent from './components/TempComponent'
 
 const App = () => {
   const [gridSize, setGridSize] = useState(4)
@@ -70,6 +70,7 @@ const App = () => {
       {/* GameBoard: renders the card grid and handles gameplay */}
 
       {/* Graffiti: shows a celebration when all matches are made */}
+      {matches === deck.length / 2 && <Graffiti />}
 
     </div>
   )
