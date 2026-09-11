@@ -60,6 +60,7 @@ const App = () => {
       {/* Scoreboard: shows number of moves, matches, and total pairs */}
 
       {/* ResetButton: allows resetting the current game */}
+      <ResetButton onReset={() => reInitializeGame(gridSize)} />
 
       {/* GameBoard: renders the card grid and handles gameplay */}
 
