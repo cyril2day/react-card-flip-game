@@ -1,4 +1,5 @@
 import { useState, useImperativeHandle, forwardRef } from 'react'
+import playFlipSoundOnce from '../utils/playFlipSoundOnce'
 
 const Card = ({ 
   icon, 
@@ -20,8 +21,14 @@ const Card = ({
     ' backface-hidden'
 
     useImperativeHandle(ref, () => ({
-      flip: () => setFlipped(true),
-      unflip: () => setFlipped(false),
+      flip: () => {
+        setFlipped(true)
+        playFlipSoundOnce()
+      },
+      unflip: () => {
+        setFlipped(false)
+        playFlipSoundOnce()
+      },
       get flipped () {
         return flipped
       },
