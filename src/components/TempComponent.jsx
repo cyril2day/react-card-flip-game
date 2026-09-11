@@ -38,7 +38,7 @@ const TempComponent = ({
           onClick={() => console.log({ gridSize, moves, matches, resetCounter })}
           className='px-3 py-1 bg-green-500 text-white rounded shadow'
         >
-          Log Deck
+          Log State
         </button>
 
         <button

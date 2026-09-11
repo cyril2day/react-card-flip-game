@@ -29,6 +29,16 @@ const App = () => {
 
   const [resetCounter, setResetCounter] = useState(0)
 
+  const reInitializeGame = (size) => {
+    setGridSize(size)
+
+    setDeck(createNewDeck(size))
+
+    setMoves(0)
+
+    setMatches(0)
+  }
+
   return (
     <div>
       <TempComponent 
@@ -45,6 +55,7 @@ const App = () => {
       </h1>
 
       {/* Settings: lets user choose grid size and restart the game */}
+      <Settings onGridChange={reInitializeGame} />
 
       {/* Scoreboard: shows number of moves, matches, and total pairs */}
 
