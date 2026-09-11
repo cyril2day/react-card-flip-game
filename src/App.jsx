@@ -3,7 +3,6 @@ import Scoreboard from './components/Scoreboard'
 import ResetButton from './components/ResetButton'
 import GameBoard from './components/GameBoard'
 import Graffiti from './components/Graffiti'
-import TempComponent from './components/TempComponent'
 import { useState } from 'react'
 import generateIcons from './utils/generateIcons'
 import shuffleDeck from './utils/shuffleDeck'
@@ -37,19 +36,12 @@ const App = () => {
     setMoves(0)
 
     setMatches(0)
+
+    setResetCounter(prev => prev + 1)
   }
 
   return (
     <div className='h-screen flex flex-col p-4 max-w-screen-md mx-auto bg-gradient-to-bl from-cyan-100 via-blue-50 to-white'>
-      <TempComponent 
-        deck={deck}
-        gridSize={gridSize}
-        moves={moves}
-        matches={matches}
-        resetCounter={resetCounter}
-        setMoves={setMoves}
-        setMatches={setMatches}
-      />
       <h1 className='text-3xl font-bold text-center mb-4'>
         Memory Match Mania
       </h1>
@@ -70,6 +62,7 @@ const App = () => {
       {/* GameBoard: renders the card grid and handles gameplay */}
       <div className='flex-grow'>
         <GameBoard
+          key={resetCounter}
           gridSize={gridSize}
           deck={deck}
           setMoves={setMoves}
