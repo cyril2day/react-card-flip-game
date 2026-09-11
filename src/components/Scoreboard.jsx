@@ -1,7 +1,14 @@
-const Scoreboard = () => {
+const Scoreboard = ({
+  moves,
+  matches,
+  total
+}) => {
   return (
-    <div>
-    
+    <div className='mb-4 flex justify-between text-lg'>
+      <span>Moves: {moves}</span>
+      <span>
+        Matches: {matches}/{total}
+      </span>
     </div>
   )
 }
